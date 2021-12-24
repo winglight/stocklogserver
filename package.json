@@ -13,7 +13,8 @@
     "express": "~4.11.x",
     "kerberos": "~0.0.x",
     "parse": "~1.8.0",
-    "parse-server": "*"
+    "parse-server": "*",
+    "ra-data-parse": "git+https://github.com/winglight/ra-data-parse.git"
   },
   "scripts": {
     "start": "node index.js"

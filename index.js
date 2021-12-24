@@ -15,11 +15,12 @@ if (!databaseUri) {
 }
 
 var api = new ParseServer({
-  databaseURI: databaseUri || 'mongodb://localhost:27017/stocklog',
+  databaseURI: databaseUri || 'mongodb://host.docker.internal:27017/stocklog',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'stocklog',
   masterKey: process.env.MASTER_KEY || 'dkElkfdjiEOij843lKD', //Add your master key here. Keep it secret!
-  serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
+//   restfulApiKey: process.env.REST_API_KEY || 'dkElkfdjiLKFJIERjdlsfkgjEOij843lKD', 
+  serverURL: process.env.SERVER_URL || 'http://localhost:13339/parse',  // Don't forget to change to https if needed
   liveQuery: {
     classNames: ["LogModel", "ReasonModel"] // List of classes to support for query subscriptions
   }
@@ -86,7 +87,7 @@ app.get('/', function(req, res) {
 //   res.sendFile(path.join(__dirname, '/public/test.html'));
 // });
 
-var port = process.env.PORT || 1337;
+var port = process.env.PORT || 13339;
 var httpServer = require('http').createServer(app);
 httpServer.listen(port, function() {
     console.log('parse-server-example running on port ' + port + '.');
